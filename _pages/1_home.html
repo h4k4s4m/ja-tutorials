@@ -1,0 +1,62 @@
+---
+layout: default
+title: JA-Tutorials
+permalink: /
+---
+
+<div class="container content">
+    <div class="title">
+        <h1>{{page.title}}</h1>
+    </div>
+    <div class="post-intro">
+        <p>Welcome to my personal tutorials on various programming topics. Topics here will range from simple things such
+            as setting up git to more complex things such as API authentication.</p>
+
+        <p>I've set this website up in order to have a quick place to look up topics that I have had to figure out in
+            the past, as well as just a simple way to do my small part in the programming community.</p>
+
+        <p>If there are any topics that you feel, you would like covered, please feel free to message me.</p>
+
+        <p>Email: <a href="mailto:jonathan.arellano.216@gmail.com">jonathan.arellano.216@gmail.com</a></p>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h1><a href="{{site.baseurl}}/tutorials">Tutorials</a></h1>
+
+            {% assign items = site.tutorials | sort: 'name' | reverse %}
+            {% for page in items limit:3 %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ page.title }}</h3>
+                </div>
+                <div class="panel-body">
+                    {{ page.excerpt }}
+                    <a href="{{ page.url | prepend:site.baseurl }}">Start Tutorial</a>
+                </div>
+            </div>
+            {% endfor %}
+            <a class="btn btn-default" href="{{site.baseurl}}/tutorials">See More <i class="fa fa-arrow-right"
+                                                                                     aria-hidden="true"></i></a>
+        </div>
+        <div class="col-sm-6">
+            <h1><a href="{{site.baseurl}}/blog">Blog</a></h1>
+
+            {% for page in site.posts reversed limit:3 %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ page.title }}</h3>
+                </div>
+                <div class="panel-body">
+                    {{ page.excerpt }}
+                    <a href="{{ page.url | prepend:site.baseurl }}">Start Tutorial</a>
+                </div>
+            </div>
+            {% endfor %}
+
+            <a class="btn btn-default" href="{{site.baseurl}}/blog">See More <i class="fa fa-arrow-right"
+                                                                                aria-hidden="true"></i></a>
+        </div>
+    </div>
+
+</div>
